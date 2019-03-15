@@ -1,6 +1,6 @@
 package local.twobengine.engine.event;
 
-public class Event {
+public abstract class Event {
 	
 	private String name; 
 

@@ -109,9 +109,9 @@ public class GameEngine implements Listener {
 		int metricMs = 0;
 
 		int metricFps;
-
+		
 		window.init();
-
+		
 		while (isRun) {
 			try {
 
@@ -143,6 +143,7 @@ public class GameEngine implements Listener {
 				e.printStackTrace();
 			}
 		}
+		
 	}
 
 	public static GameEngine current() {
