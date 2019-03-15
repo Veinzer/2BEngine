@@ -192,9 +192,6 @@ public class GameEngine implements Listener {
 		return waitSpeed;
 	}
     
-	@ValidateListener
-	public void onKey(KeyboardEvent event) {
-		System.out.println(event.getKeyId()+event.getAction().toString());
-	}
+
 
 }
