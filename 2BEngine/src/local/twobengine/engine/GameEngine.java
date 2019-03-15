@@ -1,9 +1,11 @@
 package local.twobengine.engine;
 
+import local.twobengine.engine.event.KeyboardEvent;
 import local.twobengine.engine.gui.DefaultGui;
 import local.twobengine.engine.gui.Gui;
 import local.twobengine.engine.listener.Listener;
 import local.twobengine.engine.listener.ListenerManager;
+import local.twobengine.engine.listener.ValidateListener;
 import local.twobengine.engine.memory.Memory;
 import local.twobengine.engine.sound.SoundManager;
 import local.twobengine.engine.utils.ImageUtils;
@@ -55,7 +57,7 @@ public class GameEngine implements Listener {
 		
 		
 		listener = new ListenerManager();
-
+		listener.addListener(currentObject);
 		window = new GameWindow();
 
 		System.out.println("[Started-Log] Initialising of GameWindow");
@@ -190,6 +192,9 @@ public class GameEngine implements Listener {
 		return waitSpeed;
 	}
     
-
+	@ValidateListener
+	public void onKey(KeyboardEvent event) {
+		System.out.println(event.getKeyId()+event.getAction().toString());
+	}
 
 }

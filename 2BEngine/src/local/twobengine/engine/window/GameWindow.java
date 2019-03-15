@@ -34,6 +34,7 @@ public class GameWindow extends JPanel{
 		GameInfo gameInfo = GameEngine.current().getGameInfo();
 		window.setResizable(false);
 		window.add(scene);
+		window.addKeyListener(new WindowKeyListener());
 		window.setTitle(gameInfo.getName()+" | "+gameInfo.getVersion());
 		if(gameInfo.getVersion().length() == 0) {
 			window.setTitle(gameInfo.getName());
