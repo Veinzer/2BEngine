@@ -9,19 +9,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import local.twobengine.engine.GameEngine;
 import local.twobengine.engine.GameInfo;
+import local.twobengine.engine.graphic.GraphicComponent;
 
 public class GameWindow extends JPanel{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private JFrame window;
 	private JPanel scene;
 	//private Graphics2D g2d;
 	private BufferedImage currentFrame;
 	private boolean fullScreen;
 	public static GameWindow currentObject;
-	
+
 	public GameWindow() {
 		this.window = new JFrame();
 		this.scene = this;
@@ -98,6 +100,7 @@ public class GameWindow extends JPanel{
 		return currentFrame;
 	}
 	
+
 	//clear scene because normal repaint is bugged
 
 	public static GameWindow current() {

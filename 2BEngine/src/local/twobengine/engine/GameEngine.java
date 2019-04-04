@@ -1,6 +1,7 @@
 package local.twobengine.engine;
 
 import local.twobengine.engine.event.KeyboardEvent;
+import local.twobengine.engine.graphic.GraphicManager;
 import local.twobengine.engine.gui.DefaultGui;
 import local.twobengine.engine.gui.Gui;
 import local.twobengine.engine.listener.Listener;
@@ -20,6 +21,7 @@ public class GameEngine implements Listener {
 	public static Metrics metrics;
 	public static SoundManager sound;
 	public static GameWindow window;
+	public static GraphicManager graphicManager;
 	public static Memory memory;
 	public static ListenerManager listener;
 	private static GameEngine currentObject;
@@ -61,7 +63,9 @@ public class GameEngine implements Listener {
 		window = new GameWindow();
 
 		System.out.println("[Started-Log] Initialising of GameWindow");
-
+		
+		graphicManager = new GraphicManager(window);
+		
 		gameInfo = new GameInfo() {
 
 			@Override
