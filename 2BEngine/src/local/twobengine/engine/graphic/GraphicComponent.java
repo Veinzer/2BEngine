@@ -9,6 +9,8 @@ public abstract class GraphicComponent {
 	private Location loc;
 	
 	private Region2D region2d;
+
+	private boolean canGravity;
 	
 	public GraphicComponent(boolean isWindowPos) {
 		loc = new Location(0, 0, isWindowPos);
@@ -27,6 +29,12 @@ public abstract class GraphicComponent {
 		return region2d;
 	}
 	
+	public boolean canGravity() {
+		// TODO Auto-generated method stub
+		return canGravity;
+	}
 
 	public abstract void build(Graphics graphics);
+
+
 }

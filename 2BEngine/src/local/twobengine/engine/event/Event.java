@@ -1,7 +1,7 @@
 package local.twobengine.engine.event;
 
 public abstract class Event {
-	
+
 	private String name; 
 
 	public Event() {

@@ -1,6 +1,7 @@
 package local.twobengine.engine.window;
 
 import java.awt.Color;
+
 import java.awt.Graphics;
 //import java.awt.Graphics2D;
 import java.awt.Image;
@@ -9,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import local.twobengine.engine.GameEngine;
 import local.twobengine.engine.GameInfo;
-import local.twobengine.engine.graphic.GraphicComponent;
 
 public class GameWindow extends JPanel{
 	/**
@@ -27,7 +27,6 @@ public class GameWindow extends JPanel{
 	public GameWindow() {
 		this.window = new JFrame();
 		this.scene = this;
-		this.fullScreen = false;
 		currentObject = this;
 		
 	}
@@ -41,23 +40,22 @@ public class GameWindow extends JPanel{
 		if(gameInfo.getVersion().length() == 0) {
 			window.setTitle(gameInfo.getName());
 		}
-		window.setSize(648, 448);
-		window.setLocationRelativeTo(null);
-	
+
 		window.setIconImage((Image)GameEngine.memory.get("ENGINE_LogoEngine"));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		scene.setBackground(Color.black);
-		//setFullScreen(true);
+		
 		
 		if(fullScreen) {
 			window.setLocation(0, 0);	
-		window.setSize(getToolkit().getScreenSize());
-		window.setUndecorated(fullScreen);
+			window.setSize(getToolkit().getScreenSize());
+		
 		} else {
+			
 			window.setSize(648, 448);
 			window.setLocationRelativeTo(null);
 		}
-		fullScreen = false;
+		window.setUndecorated(fullScreen);
 		window.setVisible(true);
 
 		this.currentFrame = new BufferedImage(window.getWidth(), window.getHeight(),2);
@@ -73,8 +71,7 @@ public class GameWindow extends JPanel{
 	    this.fullScreen = fullScreen;
 	    init(); 
 	    this.currentFrame = new BufferedImage(window.getWidth(), window.getHeight(),2);
-	    this.fullScreen = false;
-		
+	   
 	
 		
 	}
@@ -83,7 +80,9 @@ public class GameWindow extends JPanel{
 		window.setTitle(title);
 		
 	}
-	
+	public boolean getFullscreen() {
+		return fullScreen;
+	}
 	public String getTitle() {
 		return window.getTitle();
 	}
