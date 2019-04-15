@@ -1,18 +1,19 @@
 package local.twobengine.engine.event;
 
-import local.twobengine.engine.windows.ActionTypeKeyboard;
+import local.twobengine.engine.window.ActionType;
+
 
 public class KeyboardEvent extends Event {
 	private int keyId;
-	private ActionTypeKeyboard actionTypeKeyboard;
-	public KeyboardEvent(int keyId, ActionTypeKeyboard actionTypeKeyboard) {
+	private ActionType actionType;
+	public KeyboardEvent(int keyId, ActionType actionType) {
 		super();
 		this.keyId = keyId;
-		this.actionTypeKeyboard = actionTypeKeyboard;
+		this.actionType = actionType;
 	}
 	
-	public ActionTypeKeyboard getAction() {
-		return actionTypeKeyboard;
+	public ActionType getAction() {
+		return actionType;
 	}
 	
 	public int getKeyId() {

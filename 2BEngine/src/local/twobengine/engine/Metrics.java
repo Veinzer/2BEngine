@@ -34,8 +34,10 @@ public class Metrics {
 		//Color transparentGrayColor = new Color(102, 153, 153, Color.TRANSLUCENT);
 		g.setColor(Color.white);
 		g.setFont(Font.decode(Font.DIALOG));
+		g.drawString("Processor: "+System.getenv("PROCESSOR_ARCHITECTURE"), 50, 40);
 		g.drawString("MS: "+ms, 50, 50);
 		g.drawString("FPS: "+fps, 50, 60);
+		
 		return this;
 	}
 }

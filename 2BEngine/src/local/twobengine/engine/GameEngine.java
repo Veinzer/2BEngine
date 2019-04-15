@@ -1,6 +1,9 @@
 package local.twobengine.engine;
 
+import local.twobengine.engine.event.ButtonClickEvent;
 import local.twobengine.engine.event.KeyboardEvent;
+import local.twobengine.engine.event.MouseEvent;
+import local.twobengine.engine.graphic.GraphicComponent;
 import local.twobengine.engine.graphic.GraphicManager;
 import local.twobengine.engine.gui.DefaultGui;
 import local.twobengine.engine.gui.Gui;
@@ -10,7 +13,10 @@ import local.twobengine.engine.listener.ValidateListener;
 import local.twobengine.engine.memory.Memory;
 import local.twobengine.engine.sound.SoundManager;
 import local.twobengine.engine.utils.ImageUtils;
+import local.twobengine.engine.window.ActionType;
 import local.twobengine.engine.window.GameWindow;
+import local.twobengine.engine.window.component.Component;
+import local.twobengine.engine.world.Location;
 
 public class GameEngine implements Listener {
 
@@ -122,7 +128,6 @@ public class GameEngine implements Listener {
 			try {
 
 				if (System.currentTimeMillis() - startTimeMS <= currentObject.getTickSpeed()) {
-
 					gameMain.loopGame();
 					current().currentGui.loopGame();
 				} else {
@@ -194,6 +199,22 @@ public class GameEngine implements Listener {
 
 	public int getWaitSpeed() {
 		return waitSpeed;
+	}
+	
+	@ValidateListener
+	public void onMouse(MouseEvent event) {
+		if(event.getAction() == ActionType.RELEASE)
+		for (GraphicComponent component : graphicManager.getGraphicsComponents()) {
+	
+			if(component instanceof Component) {
+				Component componentClicked = (Component) component;
+				if(componentClicked.canClick() && componentClicked.getBounds().inspect(new Location(event.getXPos(), event.getYPos(), false))) {
+					listener.executeAllEvents(new ButtonClickEvent(componentClicked.getName(), componentClicked));
+				}
+			}
+			}
+		
+		
 	}
     
 

@@ -1,5 +1,5 @@
-package local.twobengine.engine.windows;
+package local.twobengine.engine.window;
 
-public enum ActionTypeKeyboard {
+public enum ActionType {
 	RELEASE, PRESS;
 }

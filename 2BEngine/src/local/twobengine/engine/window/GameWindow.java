@@ -36,6 +36,7 @@ public class GameWindow extends JPanel{
 		window.setResizable(false);
 		window.add(scene);
 		window.addKeyListener(new WindowKeyListener());
+		window.addMouseListener(new WindowMouseListener());
 		window.setTitle(gameInfo.getName()+" | "+gameInfo.getVersion());
 		if(gameInfo.getVersion().length() == 0) {
 			window.setTitle(gameInfo.getName());
@@ -110,8 +111,11 @@ public class GameWindow extends JPanel{
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paint(g);
-		GameEngine.gameMain.renderGraphics(getImageFrame().getGraphics());
+		currentFrame = new BufferedImage(window.getWidth(), window.getHeight(), 2);
+		
 		GameEngine.current().getCurrentGui().renderGraphics(getImageFrame().getGraphics());
+		GameEngine.graphicManager.drawGraphicManager();
+		GameEngine.gameMain.renderGraphics(getImageFrame().getGraphics());
 		g.drawImage(getImageFrame(),0,0,null);
 		
 	}
