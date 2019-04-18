@@ -33,6 +33,8 @@ public class Location {
 		return yPos;
 	}
 	
+
+	
 	public boolean getIsWindowPos() {
 		return isWindowPos;
 	}
@@ -53,4 +55,11 @@ public class Location {
 		return new Location(xPos, yPos, binaryConvertBoolean );
 	}
 	
+	public String toString() {
+		int booleanConvertBinary = 0;
+		if(isWindowPos) {
+			booleanConvertBinary = 1;
+		}
+		return xPos+":"+yPos+":"+booleanConvertBinary;
+	}
 }

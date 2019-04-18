@@ -35,6 +35,7 @@ public abstract class GraphicComponent {
 	}
 
 	public abstract void build(Graphics graphics);
+	
 
 
 }

@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.Window;
 import java.io.StringWriter;
 
 import javax.swing.JButton;
 
+import local.twobengine.engine.GameEngine;
 import local.twobengine.engine.phys.Region2D;
 import local.twobengine.engine.world.Location;
 
@@ -45,21 +48,27 @@ public class ButtonComponent extends Component{
 	public Region2D getBounds() {
 		Location locationTwo = new Location(getLocation().getX(), getLocation().getY(), false);
 		locationTwo.setX(getLocation().getX()+width);
+		
 		locationTwo.setY(getLocation().getY()+height);
+		System.out.println(getLocation().toString()+", "+locationTwo.toString());
 		return new Region2D(getLocation(),locationTwo) ;
+		
 	}
 	
 //Front to set
 	@Override
 	public void build(Graphics graphics) {
+		
 		Graphics2D graphics2d = (Graphics2D) graphics;
 		graphics2d.setColor(color);
-		graphics2d.fillRoundRect(getLocation().getX(), getLocation().getY(), width, height, width/10, height/10);
+		graphics2d.fillRect(getLocation().getX(), getLocation().getY(), width, height);
 		graphics2d.setColor(Color.black);
-		int firstNumber = getLocation().getX()+width;
-		firstNumber /= 2;
+		int firstNumber = getLocation().getX()+width/2;
+		
 		firstNumber -= graphics2d.getFontMetrics().stringWidth(getName())/2;
-		graphics2d.drawString(getName(), firstNumber, getLocation().getY()+height/2);		
+		graphics2d.drawString(getName(), firstNumber, getLocation().getY()+height/2);	
+		graphics.setColor(color.RED);
+		
 	}
 
 }
