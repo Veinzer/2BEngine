@@ -36,13 +36,18 @@ public class GameEngine implements Listener {
 
 	public static Game gameMain;
 
+	//Default settings
+	private final int DEFAULT_WAITSPEED = 6;
+	private final int DEFAULT_TICKSPEED = 20;
+	private final int DEFAULT_FPSPSEED = 60;
 	// for lower computer
 	private Gui currentGui;
 	private int waitSpeed;
 	private int tickSpeed;
 	private int fpsSpeed;
 	public static GameInfo gameInfo;
-
+	
+	
 	public static void init(Game currentGameMain) {
 		gameMain = currentGameMain;
 
@@ -58,7 +63,7 @@ public class GameEngine implements Listener {
 
 		System.out.println("[Started-Log] Initialising of GameEngine");
 
-		currentObject.setWaitSpeed(6);
+		currentObject.setWaitSpeed(DEFAULT_WAITSPEED);
 		System.out.println("[Started-Log] Initialising of WaitSpeed");
 
 		sound = new SoundManager();
@@ -96,11 +101,11 @@ public class GameEngine implements Listener {
 
 		System.out.println("[Started-Log] GameInfo is set to default");
 
-		currentObject.setTickSpeed(20);
+		currentObject.setTickSpeed(DEFAULT_TICKSPEED);
 
 		System.out.println("[Started-Log] TickSpeed is set to default");
 
-		currentObject.setFpsSpeed(60);
+		currentObject.setFpsSpeed(DEFAULT_FPSSPEED);
 
 		System.out.println("[Started-Log] FpsSpeed is set to default");
 
@@ -120,7 +125,7 @@ public class GameEngine implements Listener {
 
 		int metricMs = 0;
 
-		int metricFps;
+		int metricFps =v0;
 		
 		window.init();
 		
